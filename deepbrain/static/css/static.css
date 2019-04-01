@@ -1,0 +1,56 @@
+/* Style all font awesome icons */
+.fa {
+  padding: 10px;
+  font-size: 15px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.my_bg{
+  background: #007bb5;
+}
+
+.block1{
+  margin-left:0px;
+}
+.block2{
+}
+body{
+  background-image: url("../images/bg2.jpg");
+}
+.c_bg{
+  background-color: #B8F5B2;
+}
+
+.nav-tabs li a {
+  color: #777;
+}

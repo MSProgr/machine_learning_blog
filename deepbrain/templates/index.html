@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for post in posts %}
+<div class="card border-primary card-primary mb-2">
+  <div class="card-header text-white bg-dark text-center">
+    {{post.title}}
+  </div>
+  <div class="card-body">
+    <p class="mb-0">
+      <p>{{ post.content }}</p>
+    </p>
+  </div>
+  <div clas="bg-transparent blockquote-footer">
+  	<footer class="blockquote-footer">
+      	by <b>{{post.author}}</b> on <cite title="Source Title">{{ post.date_posted }}</cite>
+      </footer>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
