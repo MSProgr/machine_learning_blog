@@ -1,0 +1,50 @@
+{%extends "layout.html"%}
+{% block content %}
+<div class="card">
+	<div class="card-header">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<img class=" img-thumbnail img-fluid" src="{{url_for('static',filename='profile_pics/'+post.author.image_file)}}" alt="pct"/>
+				<h5 class="card-title badge badge-danger">{{post.author.username}}</h5>
+			</div>
+			<div class="col-md-9 col-sm-9 col-xs-12">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate .</p>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<fieldset>
+			<legend class="badge badge-danger" style="font-size: 1em;">
+				{{post.title}}
+			</legend>
+			<p>{{post.content}}</p>
+		</fieldset>
+	</div>
+	<div class="card-footer">
+		{% if post.author == current_user%}
+		<a href="{{url_for('update_post',post_id=post.id)}}" class="btn btn-secondary">Update</a>
+		<button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+		{% endif %}
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="deleteModalLabel">are you sure ? </h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<form action="{{url_for('delete_post',post_id=post.id)}}" method="POST">
+					<input type="submit" class="btn btn-danger" value="Delete">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

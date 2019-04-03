@@ -1,14 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<form class="form-inline mb-2" role="form" method="POST" action="">
-  {{form.hidden_tag()}}
-  <div class="form-group">
-    {{form.mc(class="form-control mr-2",placeholder="Searching for a post ...")}}
-  </div>
-  <div class="form-group">
-    {{form.submit(class="btn btn-dark")}}
-  </div>
-</form>
+<h3><p class="badge badge-dark">Posts containing "{{mc}}" ({{posts.total}})</p></h3>
   {% for post in posts.items %}
 <div class="card border-primary card-primary mb-2">
   <div class="card-header text-white bg-dark text-center">
@@ -31,9 +23,9 @@
   {% if page_num %}
 
     {% if posts.page==page_num %}
-      <a href="{{url_for('index',page=page_num)}}" class="btn btn-info mb-4">{{ page_num }}</a>
+      <a href="{{url_for('post_per_mc',mc=mc,page=page_num)}}" class="btn btn-info mb-4">{{ page_num }}</a>
     {% else %}
-      <a href="{{url_for('index',page=page_num)}}" class="btn btn-outline-info mb-4">{{ page_num }}</a>
+      <a href="{{url_for('post_per_mc',mc=mc,page=page_num)}}" class="btn btn-outline-info mb-4">{{ page_num }}</a>
     {% endif %}
 
   {% else %}
