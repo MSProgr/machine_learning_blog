@@ -10,13 +10,14 @@
   </div>
 </form>
   {% for post in posts.items %}
+  <a href="{{ url_for('post',post_id=post.id) }}" style="text-decoration: none;">
 <div class="card border-primary card-primary mb-2">
   <div class="card-header text-white bg-dark text-center">
-    <a class="text-white" href="{{ url_for('post',post_id=post.id) }}">{{post.title}}</a>
+    <span class="text-white" >{{post.title}}</span >
   </div>
   <div class="card-body">
     <p class="mb-0">
-      <p>{{ post.content }}</p>
+      <p>{{ ' '.join(post.content.split(" ")[:10]) }}</p>
     </p>
   </div>
   <hr style="background-color: red;" />
@@ -26,6 +27,7 @@
    </footer>
  </div>
 </div>
+</a>
 {% endfor %}
 {% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=2) %}
   {% if page_num %}
